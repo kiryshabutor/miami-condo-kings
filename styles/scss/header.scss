@@ -1,12 +1,18 @@
 .header{
-   height: 900px;
+   height: 700px;
    background: url('../../assets/background-img/header-bg.jpg') 0 0/100% auto no-repeat;
+   padding: 48px 0 80px;
+   .container{
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+   }
    &__top{
+      position: relative;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 25px 0 0;
-      margin-bottom: 330px;
    }
    &__btn{
       width: 18px;
@@ -17,13 +23,13 @@
       position: relative;
       cursor: pointer;
       > span, > span::before, > span::after {
+         transition: all .2s ease-in-out;
          display: block;
          position: absolute;
          width: 100%;
          height: 2px;
          border-radius: 1px;
          background-color: #fff;
-         transition-duration: .2s;
       }
       span::after, span::before{
          content: '';
@@ -34,14 +40,90 @@
       span::before{
          top: -4px;
       }
+
+      &:hover{
+         transition: all .6s ease-in-out;
+         transform: scale(1.33);
+         span::before{
+            top: -4px;
+            width: 75%;
+         }
+         span::after{
+            top: 4px;
+            width: 50%;
+         }
+      }
       
    }
 
    &__logo{
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
       cursor: pointer;
    }
 
    &__telephone{
+      display: flex;
+      align-items: center;
+
       cursor: pointer;
+      &:hover{
+         .header__telephone-number{
+            display: block;
+            opacity: 100%;
+         }
+         img{
+            transition: all 1s;
+            transform: scale(1.33);
+         }
+      }
+   }
+
+   &__telephone-number{
+      transition: all 1s;
+      width: 130px;
+      opacity: 0%;
+      margin-right: 24px;
+      
+      font-size: 12px;
+      font-weight: 700;
+      line-height: 16px;
+      letter-spacing: 2px;
+      color: #FFFFFF;
+   }
+
+   &__name-company{
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      span{
+         position: absolute;
+         top: 0;
+         left: 0;
+         width: 40px;
+         height: 2px;
+         background-color: #fff;
+      }
+      font-family: Roboto;
+      font-size: 80px;
+      font-weight: 700;
+      line-height: 80px;
+      letter-spacing: -1.5px;
+      text-align: left;
+      max-width: 500px;
+      height: 188px;
+      color: #fff;
+   }
+}
+
+@keyframes telephone-number{
+   0%{
+      opacity: 0%;
+   }
+   100%{
+      opacity: 100%;
    }
 }
