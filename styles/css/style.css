@@ -124,6 +124,10 @@ input:focus:-ms-input-placeholder {
   font-family: "Roboto", sans-serif;
 }
 
+.lock {
+  overflow: hidden;
+}
+
 .container {
   max-width: 1260px;
   margin: 0 auto;
@@ -131,6 +135,7 @@ input:focus:-ms-input-placeholder {
 }
 
 .header {
+  position: relative;
   height: 700px;
   background: url("../../assets/background-img/header-bg.jpg") 0 0/100% auto no-repeat;
   padding: 48px 0 80px;
@@ -142,12 +147,12 @@ input:focus:-ms-input-placeholder {
   justify-content: space-between;
 }
 .header__top {
-  position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 .header__btn {
+  z-index: 3;
   width: 18px;
   height: 12px;
   display: flex;
@@ -174,24 +179,41 @@ input:focus:-ms-input-placeholder {
 .header__btn span::before {
   top: -4px;
 }
+.header__btn.active > span {
+  background: rgb(0, 117, 255);
+}
+.header__btn.active > span::after, .header__btn.active span::before {
+  top: 0;
+}
+.header__btn.active > span::after {
+  transform: rotate(45deg);
+}
+.header__btn.active > span::before {
+  transform: rotate(-45deg);
+}
+.header__btn.active:hover {
+  transform: scale(1);
+}
+.header__btn.active:hover > span::after, .header__btn.active:hover span::before {
+  width: 100%;
+}
 .header__btn:hover {
   transition: all 0.6s ease-in-out;
   transform: scale(1.33);
 }
 .header__btn:hover span::before {
-  top: -4px;
   width: 75%;
 }
 .header__btn:hover span::after {
-  top: 4px;
   width: 50%;
 }
 .header__logo {
   position: absolute;
   left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
+  top: 24px;
+  transform: translateX(-50%);
   cursor: pointer;
+  z-index: 3;
 }
 .header__telephone {
   display: flex;
@@ -208,14 +230,7 @@ input:focus:-ms-input-placeholder {
 }
 .header__telephone-number {
   transition: all 1s;
-  width: 130px;
   opacity: 0%;
-  margin-right: 24px;
-  font-size: 12px;
-  font-weight: 700;
-  line-height: 16px;
-  letter-spacing: 2px;
-  color: #FFFFFF;
 }
 .header__name-company {
   position: relative;
@@ -248,4 +263,102 @@ input:focus:-ms-input-placeholder {
   100% {
     opacity: 100%;
   }
+}
+.menu {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgb(0, 117, 255);
+  z-index: 2;
+  left: 0;
+  top: -100%;
+  transition: all 0.6s;
+}
+.menu.active {
+  display: flex;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.menu__content {
+  display: flex;
+  flex-direction: column;
+  width: 1020px;
+  margin: 150px auto 0;
+  align-items: flex-start;
+}
+.menu__list {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 48px;
+  align-items: flex-start;
+}
+.menu__item {
+  display: inline-block;
+  list-style: none;
+  text-transform: uppercase;
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 22px;
+  letter-spacing: 2px;
+  color: #FFFFFF;
+}
+.menu__item:not(:last-child) {
+  margin-bottom: 24px;
+}
+.menu__item::after {
+  display: block;
+  background-color: #ffffff;
+  content: "";
+  margin-top: 8px;
+  height: 1px;
+  width: 100%;
+  opacity: 0%;
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz--transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+.menu__item:hover {
+  cursor: pointer;
+}
+.menu__item:hover:after {
+  opacity: 100%;
+}
+.menu__call {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  transition: all 0.5s;
+}
+.menu__call span {
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 16px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #FFFFFF;
+}
+.menu__call span::after {
+  display: block;
+  background-color: #ffffff;
+  content: "";
+  margin-top: 8px;
+  height: 1px;
+  width: 100%;
+}
+.menu__call:hover {
+  transform: scale(1.1);
+}
+.menu__telephone-number {
+  margin-bottom: 16px;
+}
+
+.telephone-number {
+  width: 130px;
+  margin-right: 24px;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 16px;
+  letter-spacing: 2px;
+  color: #FFFFFF;
 }
