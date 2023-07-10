@@ -141,6 +141,16 @@
   .header__telephone-number {
     display: none;
   }
+  .header__btn:hover {
+    transition: none 0.6s ease-in-out;
+    transform: scale(1);
+  }
+  .header__btn:hover span::before {
+    width: 100%;
+  }
+  .header__btn:hover span::after {
+    width: 100%;
+  }
 }
 @keyframes telephone-number {
   0% {

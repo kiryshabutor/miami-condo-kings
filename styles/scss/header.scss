@@ -161,6 +161,21 @@
       &__telephone-number{
          display: none;
       }
+
+      &__btn{
+         &:hover{
+            transition: none .6s ease-in-out;
+            transform: scale(1);
+            span::before{
+               
+               width: 100%;
+            }
+            span::after{
+               
+               width: 100%;
+            }
+         }
+      }
    }
 }
 
