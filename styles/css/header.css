@@ -168,7 +168,7 @@
   z-index: 2;
   left: 0;
   top: -100%;
-  transition: all 0.6s;
+  transition: all 0.8s;
 }
 .menu.active {
   display: flex;
