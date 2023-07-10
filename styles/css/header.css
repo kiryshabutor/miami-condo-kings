@@ -1,7 +1,8 @@
 .header {
   position: relative;
   height: 700px;
-  background: url("../../assets/background-img/header-bg.jpg") 0 0/100% auto no-repeat;
+  background: url("../../assets/background-img/header-bg.jpg") 0 0/cover no-repeat;
+  background-position: 50% 50%;
   padding: 48px 0 80px;
 }
 .header .container {
@@ -79,13 +80,16 @@
   cursor: pointer;
   z-index: 3;
 }
+.header__logo img {
+  width: 136px;
+  height: 80px;
+}
 .header__telephone {
   display: flex;
   align-items: center;
   cursor: pointer;
 }
 .header__telephone:hover .header__telephone-number {
-  display: block;
   opacity: 100%;
 }
 .header__telephone:hover img {
@@ -101,7 +105,6 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  font-family: Roboto;
   font-size: 80px;
   font-weight: 700;
   line-height: 80px;
@@ -120,6 +123,25 @@
   background-color: #fff;
 }
 
+@media (max-width: 767px) {
+  .header {
+    height: 568px;
+    padding-top: 36px;
+  }
+  .header__logo img {
+    width: 82px;
+    height: 48px;
+  }
+  .header__name-company {
+    height: 108px;
+    font-size: 46px;
+    line-height: 40px;
+    letter-spacing: -1px;
+  }
+  .header__telephone-number {
+    display: none;
+  }
+}
 @keyframes telephone-number {
   0% {
     opacity: 0%;
@@ -217,6 +239,12 @@
   margin-bottom: 16px;
 }
 
+@media (max-width: 767px) {
+  .menu__content {
+    width: 280px;
+    margin: 120px auto 0;
+  }
+}
 .telephone-number {
   width: 130px;
   margin-right: 24px;
